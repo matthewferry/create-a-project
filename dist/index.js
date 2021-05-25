@@ -11,12 +11,10 @@ const context = github.context;
 
 // most @actions toolkit packages have async methods
 async function run() {
-  try {
-    
+  try {  
     const githubToken = core.getInput('github-token');
     const octokit = github.getOctokit(githubToken);
-    
-    let columns = core.getInput('columns');
+    const columns = core.getInput('columns').split(/(?:\r?\n+)|(?:,\s)/);
     
     const createProject = await octokit.rest.projects.createForRepo({
       owner: context.repo.owner,
@@ -24,7 +22,14 @@ async function run() {
       name: core.getInput('name'),
     });
     
-    console.log(columns.split(/\r?\n/));
+    console.log(columns);
+
+    columns.forEach((column) => {
+      octokit.rest.projects.createColumn({
+        project_id: createProject.data.id,
+        name: column,
+      });
+    });
 
     core.setOutput('project-id', createProject.data.id);
   } catch (error) {
