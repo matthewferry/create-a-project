@@ -16,15 +16,16 @@ async function run() {
       repo: context.repo.repo,
       name: core.getInput('name'),
     });
+  
+    console.log(columns);
+//     columns.forEach((column) => {
+//       octokit.rest.projects.createColumn({
+//         project_id: createProject.data.id,
+//         name: column,
+//       });
+//     });
 
-    columns.forEach((column) => {
-      octokit.rest.projects.createColumn({
-        project_id: createProject.data.id,
-        name: column,
-      });
-    });
-
-    core.setOutput('project_id', 'TODO');
+    core.setOutput('project-id', 'TODO');
   } catch (error) {
     core.setFailed(error.message);
   }
