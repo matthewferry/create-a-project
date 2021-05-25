@@ -1,6 +1,8 @@
 name: 'Wait'
 description: 'Wait a designated number of milliseconds'
 inputs:
+  github-token:
+    description: 'GitHub token for OctoKit client'
   name:
     description: 'Name of the project'
   columns:  # project board column names
@@ -11,7 +13,7 @@ inputs:
       In progress
       Done
 outputs:
-  project_id:
+  project-id:
     description: 'ID of the board you created'
 runs:
   using: 'node12'
