@@ -7,7 +7,7 @@ async function run() {
   try {
     
     const githubToken = core.getInput('github-token');
-    const octokit = github.getOctokit(myToken);
+    const octokit = github.getOctokit(githubToken);
     
     const columns = core.getInput('columns');
     
