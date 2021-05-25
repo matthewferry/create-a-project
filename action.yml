@@ -5,6 +5,12 @@ inputs:
     description: 'GitHub token for OctoKit client'
   name:
     description: 'Name of the project'
+  description:
+    description: 'Project description'
+  private:
+    description: 'Sets project visibility to public or private'
+    required: true
+    default: false
   columns:  # project board column names
     description: 'Define the columns for your board'
     required: true

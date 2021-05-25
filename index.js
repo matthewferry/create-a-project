@@ -13,6 +13,8 @@ async function run() {
       owner: context.repo.owner,
       repo: context.repo.repo,
       name: core.getInput('name'),
+      body: core.getInput('description') || null,
+      private: core.getInput('private'),
     });
     
     console.log(columns);
