@@ -19,16 +19,14 @@ async function run() {
     
     columns.split(/\r?\n/);
 
-    console.log(columns);
-    
-//     columns.forEach((column) => {
-//       octokit.rest.projects.createColumn({
-//         project_id: createProject.data.id,
-//         name: column,
-//       });
-//     });
+    columns.forEach((column) => {
+      octokit.rest.projects.createColumn({
+        project_id: createProject.data.id,
+        name: column,
+      });
+    });
 
-    core.setOutput('project-id', 'TODO');
+    core.setOutput('project-id', createProject.data.id);
   } catch (error) {
     core.setFailed(error.message);
   }
