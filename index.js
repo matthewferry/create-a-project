@@ -1,18 +1,30 @@
 const core = require('@actions/core');
-const wait = require('./wait');
-
+const github = require('@actions/github');
+const context = github.context;
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput('milliseconds');
-    core.info(`Waiting ${ms} milliseconds ...`);
+    
+    const githubToken = core.getInput('github-token');
+    const octokit = github.getOctokit(myToken);
+    
+    const columns = core.getInput('columns');
+    
+    const createProject = await github.projects.createForRepo({
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      name: core.getInput('name'),
+    });
 
-    core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms));
-    core.info((new Date()).toTimeString());
+    columns.forEach((column) => {
+      github.projects.createColumn({
+        project_id: createProject.data.id,
+        name: column,
+      });
+    });
 
-    core.setOutput('time', new Date().toTimeString());
+    core.setOutput('project_id', 'TODO');
   } catch (error) {
     core.setFailed(error.message);
   }
