@@ -11,14 +11,14 @@ async function run() {
     
     const columns = core.getInput('columns');
     
-    const createProject = await github.projects.createForRepo({
+    const createProject = await octokit.rest.projects.createForRepo({
       owner: context.repo.owner,
       repo: context.repo.repo,
       name: core.getInput('name'),
     });
 
     columns.forEach((column) => {
-      github.projects.createColumn({
+      octokit.rest.projects.createColumn({
         project_id: createProject.data.id,
         name: column,
       });
