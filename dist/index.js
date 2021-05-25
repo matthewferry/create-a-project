@@ -23,12 +23,21 @@ async function run() {
       repo: context.repo.repo,
       name: core.getInput('name'),
     });
+
+    const parseColumns = (c) => {
+      c.split(/\r?\n/).reduce((acc, line) => {
+        acc
+          .concat(line.split(","))
+          .filter(pat => pat)
+          .map(pat => pat.trim())
+      }, []);
+    };
     
-    columns.split(/\r?\n/);
+    // columns.split(/\r?\n/);
 
-    console.log(typeof columns);
+    console.log(parseColumns(columns));
 
-    columns.forEach((column) => {
+    parseColumns(columns).forEach((column) => {
       octokit.rest.projects.createColumn({
         project_id: createProject.data.id,
         name: column,
