@@ -24,7 +24,7 @@ async function run() {
       name: core.getInput('name'),
     });
     
-    console.log(columns.replace(/\r?\n/g, ", "));
+    console.log(columns.split(/\r?\n/));
 
     core.setOutput('project-id', createProject.data.id);
   } catch (error) {
