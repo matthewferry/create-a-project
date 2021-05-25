@@ -16,15 +16,18 @@ async function run() {
     const githubToken = core.getInput('github-token');
     const octokit = github.getOctokit(githubToken);
     
-    const columns = core.getInput('columns');
+    let columns = core.getInput('columns');
     
     const createProject = await octokit.rest.projects.createForRepo({
       owner: context.repo.owner,
       repo: context.repo.repo,
       name: core.getInput('name'),
     });
-  
+    
+    columns.split(/\r?\n/);
+
     console.log(columns);
+    
 //     columns.forEach((column) => {
 //       octokit.rest.projects.createColumn({
 //         project_id: createProject.data.id,
