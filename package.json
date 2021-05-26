@@ -1,6 +1,6 @@
 {
   "name": "create-a-project",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Creates a new GitHub project in your repository",
   "main": "dist/index.js",
   "scripts": {
