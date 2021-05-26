@@ -15,8 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Save name of week
-        run: echo "WEEK=$(date '+%B %d, %Y')" >> $GITHUB_ENV
+      - run: echo "WEEK=$(date '+%B %d, %Y')" >> $GITHUB_ENV
       - uses: matthewferry/create-a-project@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
