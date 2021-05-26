@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
+  "name": "create-a-project",
   "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "description": "Creates a project",
   "main": "index.js",
   "scripts": {
     "build": "ncc build index.js -o dist --source-map --license licenses.txt"
