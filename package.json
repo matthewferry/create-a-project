@@ -4,7 +4,7 @@
   "description": "Creates a project",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build index.js -o dist --source-map --license licenses.txt"
+    "build": "npx ncc build index.js -o dist --license licenses.txt"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "Actions",
     "Projects"
   ],
-  "author": "",
+  "author": "Matthew Ferry",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/matthewferry/create-a-project/issues"
@@ -24,8 +24,5 @@
   "dependencies": {
     "@actions/core": "^1.2.5",
     "@actions/github": "^5.0.0"
-  },
-  "devDependencies": {
-    "@vercel/ncc": "^0.27.0"
   }
 }
