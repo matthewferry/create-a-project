@@ -23,6 +23,8 @@ async function run() {
       });
     });
 
+    console.log(createProject.data)
+
     core.setOutput('project-id', createProject.data.id);
   } catch (error) {
     core.setFailed(error.message);
