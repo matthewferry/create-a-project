@@ -1,5 +1,5 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: Create a project
+description: Creates a new GitHub Project in your repository
 inputs:
   name:
     description: 'Name of the project'
@@ -11,7 +11,7 @@ inputs:
     description: 'Sets project visibility to public or private'
     required: true
     default: false
-  columns:  # project board column names
+  columns:
     description: 'Define the columns for your board'
     required: true
     default: |
@@ -24,3 +24,6 @@ outputs:
 runs:
   using: 'node12'
   main: 'dist/index.js'
+branding:
+  icon: layout
+  color: gray-dark

@@ -2,7 +2,7 @@
 
 ## Usage
 
-This GitHub Action creates a new project. Here's an example workflow that creates a project every week.
+This GitHub Action creates a new project in your repository. Here's an example workflow that creates a fresh sprint project every week.
 
 ```yaml
 # .github/workflows/create-sprint.yml
@@ -23,7 +23,7 @@ jobs:
           name: "Sprint: ${{ env.WEEK }}"
           description: Weekly sprint planning project
           columns: |
-            📨 Backlog
+            📨 To do
             🧑‍💻 In progress
             ✅ Done
             🚢 Shipped

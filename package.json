@@ -1,7 +1,7 @@
 {
   "name": "create-a-project",
   "version": "1.0.0",
-  "description": "Creates a project",
+  "description": "Creates a new GitHub project in your repository",
   "main": "dist/index.js",
   "scripts": {
     "build": "npx ncc build src/index.js --license licenses.txt"
