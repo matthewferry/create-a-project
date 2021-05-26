@@ -2,7 +2,7 @@
   "name": "create-a-project",
   "version": "1.0.0",
   "description": "Creates a project",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "ncc build index.js -o dist --source-map --license licenses.txt"
   },

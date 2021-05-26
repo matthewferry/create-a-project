@@ -15,8 +15,6 @@ async function run() {
       body: core.getInput('description') || null,
       private: core.getInput('private'),
     });
-    
-    console.log(columns);
 
     columns.forEach((column) => {
       octokit.rest.projects.createColumn({
