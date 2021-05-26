@@ -1,12 +1,12 @@
 name: 'Wait'
 description: 'Wait a designated number of milliseconds'
 inputs:
-  github-token:
-    description: 'GitHub token for OctoKit client'
   name:
     description: 'Name of the project'
+    required: true
   description:
     description: 'Project description'
+    required: false
   private:
     description: 'Sets project visibility to public or private'
     required: true

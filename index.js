@@ -4,9 +4,8 @@ const context = github.context;
 
 // most @actions toolkit packages have async methods
 async function run() {
-  try {  
-    const githubToken = core.getInput('github-token');
-    const octokit = github.getOctokit(githubToken);
+  try {
+    const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
     const columns = core.getInput('columns').split(/(?:\r?\n+)|(?:,\s)/);
     
     const createProject = await octokit.rest.projects.createForRepo({
