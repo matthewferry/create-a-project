@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo "WEEK=$(date '+%B %d, %Y')" >> $GITHUB_ENV
-      - uses: matthewferry/create-a-project@main
+      - uses: matthewferry/create-a-project@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
