@@ -6144,7 +6144,11 @@ async function run() {
       });
     });
 
-    console.log(createProject.data)
+    const getColumns = octokit.rest.projects.listColumns({
+      project_id: createProject.data.id,
+    });
+
+    console.log(createProject.data, getColumns)
 
     core.setOutput('project-id', createProject.data.id);
   } catch (error) {
